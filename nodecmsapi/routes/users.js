@@ -45,7 +45,7 @@ router.post('/login', function (req, res) {
     User.findOne({ username: username, password: password }, function (err, user) {
         if (err) console.log(err);
 
-        if (user) {
+        if (user) { //if there is a succes
             res.json(username);
         } else {
             res.json("invalidLogin");

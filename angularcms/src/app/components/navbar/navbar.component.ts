@@ -10,6 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   pages:any;
+  user: string;
+
+  get userLoggedIn(){
+    if(localStorage.getItem("user")){ //check if user is logged in
+      this.user = localStorage.getItem("user").replace(/\"/g,"");
+      return true;
+    }
+    return false;
+  }
 
   constructor(public pageService: PageService) { }
 
