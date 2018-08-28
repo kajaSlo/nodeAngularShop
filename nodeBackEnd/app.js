@@ -49,10 +49,13 @@ app.use(function (req, res, next) {
 //Set routes
 var pages = require('./routes/pages.js');
 var users = require('./routes/users.js');
+var products = require('./routes/products.js');
+
 
 
 app.use('/pages', pages);
 app.use('/users', users);
+app.use('/products', products);
 
 
 

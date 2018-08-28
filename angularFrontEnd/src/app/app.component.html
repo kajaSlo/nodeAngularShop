@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<br><br>
 <app-admin-navbar *ngIf="!front"></app-admin-navbar>
 <div class="container-fluid">
     <div class="row">
@@ -7,3 +8,5 @@
         </div>
     </div>
 </div>
+<app-products *ngIf="front"></app-products>
+

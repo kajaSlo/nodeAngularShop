@@ -19,6 +19,11 @@ import { AdminPagesComponent } from './components/admin-pages/admin-pages.compon
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { AdminAddPageComponent } from './components/admin-add-page/admin-add-page.component';
 import { AdminEditPageComponent } from './components/admin-edit-page/admin-edit-page.component';
+import { ProductService } from './services/product.service';
+import { ProductsComponent } from './components/products/products.component';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { AdminAddProductComponent } from './components/admin-add-product/admin-add-product.component';
+import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
 
 
 const appRoutes: Routes = [
@@ -29,7 +34,11 @@ const appRoutes: Routes = [
   {path: 'admin/add-page', component: AdminAddPageComponent},
   {path: 'admin/edit-page/:id', component: AdminEditPageComponent},
   {path: ':page', component: PagesComponent},
-  {path: '', component: PagesComponent}
+  {path: 'admin/products', component: AdminProductsComponent},
+  {path: 'admin/add-product', component: AdminAddProductComponent},
+  {path: 'admin/edit-product/:id', component: AdminEditProductComponent},
+  {path: '', component: PagesComponent},
+  
 
 ]
 
@@ -44,7 +53,12 @@ const appRoutes: Routes = [
     AdminPagesComponent,
     AdminNavbarComponent,
     AdminAddPageComponent,
-    AdminEditPageComponent
+    AdminEditPageComponent,
+    ProductsComponent,
+    AdminProductsComponent,
+    AdminAddProductComponent,
+    AdminEditProductComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -55,7 +69,8 @@ const appRoutes: Routes = [
   providers: [
     PageService,
     Title, 
-    UserService
+    UserService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
