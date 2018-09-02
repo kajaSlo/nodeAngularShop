@@ -3,3 +3,10 @@
     {{ pageBody?.content}}
   </div>
 </div>
+<!--<ng-container *ngFor="let page of pages?.value"> 
+    
+  <h1>It is home {{page.slug}}</h1>>
+
+</ng-container> -->
+
+<app-products *ngIf="param == 'home' && front==true"> </app-products>

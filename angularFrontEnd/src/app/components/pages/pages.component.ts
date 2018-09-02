@@ -47,4 +47,10 @@ export class PagesComponent implements OnInit {
     })
   }
 
+  get front() {
+    if (localStorage.getItem("user") === "\"admin\"") {
+        return false;
+    }
+    return true;
+  }
 }
