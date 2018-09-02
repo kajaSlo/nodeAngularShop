@@ -1,19 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 nav.admin {
-    background: purple;
-    position: fixed;
+    background: black;
+    position: initial;
     width: 150px;
-    top: 60px;
-    left: 0;
-    margin-bottom: 0;
+    top: 0px;
+    left: 10px;
+    margin-bottom: 0px;
+    border-style: solid;
+    margin-left: 10px;
 }
 
 
 nav.admin li a {
     color: white !important;
     font-weight: bold;
+    
+
 }
 
 div.space {
     padding-left: 180px;
 }
+html {
+    background-image: url("old_moon.png");
+}
+
