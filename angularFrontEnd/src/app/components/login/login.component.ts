@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { UserService } from './../../services/user.service';
 
 @Component({
@@ -13,18 +12,15 @@ export class LoginComponent implements OnInit {
   public loginFailed: boolean = false;
   public userRegistered: boolean = false;
 
-  constructor(private router: Router,
-        private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-
-    //if user is logged in, redirect to home page
     if (localStorage.getItem("user")) this.router.navigateByUrl('');
 
     if (localStorage.getItem("userRegistered")) {
       this.userRegistered = true;
       localStorage.removeItem("userRegistered");
-  }
+    }
   }
 
   login({ value, valid }) {
@@ -47,7 +43,5 @@ export class LoginComponent implements OnInit {
     } else {
         console.log('Form is not valid.');
     }
-}
-
-
+  }
 }

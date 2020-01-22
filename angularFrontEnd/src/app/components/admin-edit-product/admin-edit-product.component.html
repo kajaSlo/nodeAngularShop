@@ -1,20 +1,16 @@
 <div class="alert alert-success" *ngIf="successMsg">
   <p>Product edited.</p>
 </div>
-
 <div class="alert alert-danger" *ngIf="errorMsg">
   <p>Product title exists, choose another.</p>
 </div>
 <div class="alert alert-danger" *ngIf="errorMsg2">
   <p>Problem editing product, try later.</p>
 </div>
-
 <h1 class="product-title">Edit {{product?.title}} product</h1>
 <a class="btn btn-primary" routerLink="/admin/products">Back to all products</a>
 <br><br>
-
 <form novalidate #f="ngForm" (ngSubmit)="editProduct(f)">
-
   <div class="form-group">
       <label for="">Title:</label>
       <input type="text" class="form-control" placeholder="Title" name="title" [(ngModel)]="title" #productTitle="ngModel"
@@ -26,22 +22,18 @@
   <div class="alert alert-danger" *ngIf="productTitle.errors?.minlength && productTitle.touched">
       Minimum length is 3.
   </div>
-
   <div class="form-group">
       <label for="">Description:</label>
       <textarea class="form-control" name="desc" cols="30" rows="10" placeholder="Description" 
       [(ngModel)]="desc"></textarea>
   </div>
-
   <div class="form-group">
     <label for="">Price:</label>
     <input type="text" class="form-control" placeholder="Price" name="price" [(ngModel)]="price" required />
 </div>
-
 <input type="hidden" name="id" [(ngModel)]="id">
 
   <div class="form-group">
       <button class="btn btn-default" [disabled]="!f.valid">Edit product</button>
   </div>
-
 </form>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-admin-products',
   templateUrl: './admin-products.component.html',
@@ -20,16 +19,10 @@ export class AdminProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.productService.getProducts().subscribe(products => {
-
       this.productService.productsBS.next(products);
       this.products = this.productService.productsBS;
     });
-
-
-   // this.products = this.productService.productsBS;
-
   }
 
   deleteProduct(id) {
@@ -45,13 +38,11 @@ export class AdminProductsComponent implements OnInit {
                 setTimeout(function() {
                     this.successMsg = false;
                 }.bind(this),2000);
-
                 this.productService.getProducts().subscribe(products => {
                     this.productService.productsBS.next(products);
                 });
             }
         });
     }
-}
-
+  }
 }

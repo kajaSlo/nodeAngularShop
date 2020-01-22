@@ -22,9 +22,6 @@ export class PagesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    //getting all the pages from the pages collection
-
     this.pageService.getPages().subscribe(pages => {
       this.pages = pages;
   });
@@ -36,7 +33,7 @@ export class PagesComponent implements OnInit {
           this.title.setTitle('Home')
       }else{
             this.title.setTitle(this.param.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()));
-            }
+      }
 
       this.pageService.getPage(this.param).subscribe(pageBody =>{
         if (pageBody == null){

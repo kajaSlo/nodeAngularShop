@@ -14,12 +14,8 @@ export class RegisterComponent implements OnInit {
   constructor(private userService: UserService,private router: Router) { }
 
   ngOnInit() {
-
-    //if a user is logged in, he shouldn't access this page without loging out
     if (localStorage.getItem("user")) this.router.navigateByUrl('');
-
   }
-
 
   register({ value, valid }) {
     if (valid) {

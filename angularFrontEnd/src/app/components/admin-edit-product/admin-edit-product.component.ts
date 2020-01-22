@@ -9,7 +9,6 @@ import { ProductService } from '../../services/product.service';
 })
 export class AdminEditProductComponent implements OnInit {
 
-
   product: any;
   successMsg: boolean = false;
   errorMsg: boolean = false;
@@ -31,18 +30,13 @@ export class AdminEditProductComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.param = params['id'];
       this.productService.getEditProduct(this.param).subscribe(product => {
-
         this.product = product;
         this.title = product.title;
         this.desc = product.desc;
         this.price = product.price;
         this.id = product._id;
-
-
       })
-
     });
-
   }
 
   editProduct({ value, valid}) {
@@ -63,7 +57,6 @@ export class AdminEditProductComponent implements OnInit {
                 setTimeout(function() {
                     this.successMsg = false;
                 }.bind(this),2000);
-
                 this.productService.getProducts().subscribe(products => {
                     this.productService.productsBS.next(products);
                 });
@@ -72,6 +65,5 @@ export class AdminEditProductComponent implements OnInit {
     } else {
         console.log('Form is not valid.');
     }
-}
-
+  }
 }

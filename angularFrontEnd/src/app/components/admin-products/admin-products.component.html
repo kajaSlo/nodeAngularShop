@@ -1,22 +1,18 @@
 <div class="alert alert-success" *ngIf="successMsg">
   <p>Product deleted.</p>
 </div>
-
 <div class="alert alert-danger" *ngIf="errorMsg">
   <p>Error deleting the product.</p>
 </div>
-
 <h1 class="product-title">Products</h1>
 <a class="btn btn-primary" routerLink="/admin/add-product">Add a product</a>
 <br><br>
-
 <table class="table">
   <tr bgcolor="#f9f9f9">
       <th>Title</th>
       <th>Edit</th>
       <th>Delete</th>
   </tr>
-
   <tr *ngFor="let product of products.value">
       <td>
           {{ product.title }}

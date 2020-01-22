@@ -1,6 +1,5 @@
 import { PageService } from './../../services/page.service';
 import { Component, OnInit } from '@angular/core';
-//import { of } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +12,7 @@ export class NavbarComponent implements OnInit {
   user: string;
 
   get userLoggedIn(){
-    if(localStorage.getItem("user")){ //check if user is logged in
+    if(localStorage.getItem("user")){ 
       this.user = localStorage.getItem("user").replace(/\"/g,"");
       return true;
     }
@@ -29,5 +28,4 @@ export class NavbarComponent implements OnInit {
       this.pages = this.pageService.pagesBS;
     });
   }
-
 };

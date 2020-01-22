@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PageService } from './../../services/page.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-admin-edit-page',
   templateUrl: './admin-edit-page.component.html',
@@ -27,36 +26,16 @@ export class AdminEditPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-
     this.route.params.subscribe(params => {
-
       this.param = params['id'];
       this.pageService.getEditPage(this.param).subscribe(page => {
-       /* console.log(this.param);
-       
-
-        this.page = page;
-        console.log(page);
-        this.title = page["title"];
-        console.log("title:");
-        console.log(page.title);
-        this.content = page["content"];
-        */
-
-        console.log(page.title);
-
         this.page = page;
         this.title = page.title;
         this.content = page.content;
         this.id = page._id;
       })
-
-
     })
-
   }
-
 
   editPage({ value, valid}) {
     if (valid) {
@@ -85,7 +64,5 @@ export class AdminEditPageComponent implements OnInit {
     } else {
         console.log('Form is not valid.');
     }
-}
-
-
+  }
 }

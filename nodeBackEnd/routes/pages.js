@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-//Get page model
-
 var Page = require('../models/page');
-
-//Get all pages
 
 router.get('/', function(req,res){
    Page.find({}, function(err,pages){
@@ -13,8 +9,6 @@ router.get('/', function(req,res){
        res.json(pages);
    }); 
 });
-
-// Get a single page
 
 router.get('/:slug', function (req, res) {
 
@@ -26,13 +20,11 @@ router.get('/:slug', function (req, res) {
     });
 });
 
-// POST add page
 router.post('/add-page', function (req, res) {
 
     var title = req.body.title;
     var slug = req.body.title.replace(/\s+/g, '-').toLowerCase();
     var content = req.body.content;
-
 
     Page.findOne({ slug: slug }, function (err, page) {
         if (err) console.log(err);
@@ -46,7 +38,6 @@ router.post('/add-page', function (req, res) {
                 content: content,
                 sidebar: "no"
             });
-
             page.save(function (err) {
                 if (err) console.log(err);
                 res.json("ok");
@@ -55,8 +46,6 @@ router.post('/add-page', function (req, res) {
     });
 });
 
-
-// GET edit page
 router.get('/edit-page/:id', function (req, res) {
 
     var id = req.params.id;
@@ -67,10 +56,6 @@ router.get('/edit-page/:id', function (req, res) {
     });
 });
 
-
-
-
-//POST edit page
 router.post('/edit-page/:id', function (req, res) {
 
     var id = req.params.id;
@@ -80,7 +65,6 @@ router.post('/edit-page/:id', function (req, res) {
     var content = req.body.content;
 
     Page.findOne({ slug: slug, _id: { '$ne': id } }, function (e, p) {
-        if (e) console.log(e);
         if (p) {
             res.json("pageExists");
         } else {
@@ -104,8 +88,6 @@ router.post('/edit-page/:id', function (req, res) {
     });
 });
 
-
-//GET delete page
 router.get('/delete-page/:id', function (req, res) {
 
     var id = req.params.id;
@@ -119,7 +101,5 @@ router.get('/delete-page/:id', function (req, res) {
         }
     });
 });
-
-//Exports
 
 module.exports = router;

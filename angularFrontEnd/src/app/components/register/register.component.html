@@ -1,9 +1,7 @@
 <h1 class="page-title">Register</h1>
-
 <div class="alert alert-danger" *ngIf="userExists">
     <p>That username already exists, choose another!</p>
 </div>
-
 <form novalidate #f="ngForm" (ngSubmit)="register(f)">
 
     <div class="form-group">
@@ -21,7 +19,6 @@
     <div class="alert alert-danger" *ngIf="userName.errors?.minlength && userName.touched">
         Minimum length is 2.
     </div>
-
     <div class="form-group">
         <label for="">Password</label>
         <input type="password" class="form-control" placeholder="Password" name="password" 
@@ -37,10 +34,7 @@
     <div class="alert alert-danger" *ngIf="userPassword.errors?.minlength && userPassword.touched">
         Minimum length is 4.
     </div>
-
     <div class="form-group">
         <button class="btn btn-default" [disabled]="!f.valid">Register</button>
-        <!-- <button class="btn btn-default">Register</button> -->
     </div>
-
 </form>

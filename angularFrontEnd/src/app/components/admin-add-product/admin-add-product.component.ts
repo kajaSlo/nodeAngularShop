@@ -14,14 +14,11 @@ export class AdminAddProductComponent implements OnInit {
   public title: string;
   public desc: string;
   public price: number;
-
-
   constructor(
     private productService: ProductService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   addProduct({form, value, valid}) {
     form.reset();
@@ -37,9 +34,6 @@ export class AdminAddProductComponent implements OnInit {
               setTimeout(function() {
                   this.successMsg = false;
               }.bind(this),2000);
-
-
-              //updating productBS observable after a product is added
               this.productService.getProducts().subscribe(products => {
                   this.productService.productsBS.next(products);
               })
@@ -48,7 +42,5 @@ export class AdminAddProductComponent implements OnInit {
   } else {
       console.log('Form is not valid.');
   }
-
-  }
-
+ }
 }

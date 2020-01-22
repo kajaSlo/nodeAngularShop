@@ -1,17 +1,13 @@
 <div class="alert alert-success" *ngIf="successMsg">
   <p>Product added.</p>
 </div>
-
 <div class="alert alert-danger" *ngIf="errorMsg">
   <p>Product title exists, choose another</p>
 </div>
-
 <h1 class="product-title">Add a product</h1>
 <a class="btn btn-primary" routerLink="/admin/products">Back to all products</a>
 <br><br>
-
 <form novalidate #f="ngForm" (ngSubmit)="addProduct(f)">
-
   <div class="form-group">
       <label for="">Title:</label>
       <input type="text" class="form-control" placeholder="Title" name="title" [(ngModel)]="title" #productTitle="ngModel"
@@ -29,14 +25,11 @@
       <textarea class="form-control" name="desc" cols="30" rows="10" placeholder="Description" 
       [(ngModel)]="desc"></textarea>
   </div>
-
   <div class="form-group">
     <label for="">Price:</label>
     <input type="text" class="form-control" placeholder="Price" name="price" [(ngModel)]="price" required />
 </div>
-
   <div class="form-group">
       <button class="btn btn-default" [disabled]="!f.valid">Add product</button>
   </div>
-
 </form>

@@ -1,12 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
-// Get User Model
 var User = require('../models/user');
 
-/*
-* POST register
-*/
 router.post('/register', function (req, res) {
 
     var username = req.body.username;
@@ -14,7 +9,6 @@ router.post('/register', function (req, res) {
 
     User.findOne({ username: username }, function (err, user) {
         if (err) console.log(err);
-
         if (user) {
             res.json("userExists");
         } else {
@@ -34,9 +28,6 @@ router.post('/register', function (req, res) {
     });
 });
 
-/*
-* POST login
-*/
 router.post('/login', function (req, res) {
 
     var username = req.body.username;
@@ -44,8 +35,7 @@ router.post('/login', function (req, res) {
 
     User.findOne({ username: username, password: password }, function (err, user) {
         if (err) console.log(err);
-
-        if (user) { //if there is a succes
+        if (user) { 
             res.json(username);
         } else {
             res.json("invalidLogin");
@@ -53,5 +43,4 @@ router.post('/login', function (req, res) {
     });
 });
 
-// Exports
 module.exports = router;

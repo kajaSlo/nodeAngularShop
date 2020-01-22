@@ -11,14 +11,11 @@ export class LogoutComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-
     if(localStorage.getItem("user")){
       localStorage.removeItem("user");
       this.router.navigateByUrl('');
     }else{
       this.router.navigateByUrl('login');
     }
-
   }
-
 }

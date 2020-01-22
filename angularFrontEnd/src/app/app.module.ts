@@ -5,12 +5,9 @@ import { NgModule } from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
 import { PageService } from './services/page.service';
-
 import { Title } from'@angular/platform-browser';
 import { UserService } from './services/user.service';
 import { LoginComponent } from './components/login/login.component';
@@ -25,7 +22,6 @@ import { AdminProductsComponent } from './components/admin-products/admin-produc
 import { AdminAddProductComponent } from './components/admin-add-product/admin-add-product.component';
 import { AdminEditProductComponent } from './components/admin-edit-product/admin-edit-product.component';
 
-
 const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
@@ -38,8 +34,6 @@ const appRoutes: Routes = [
   {path: 'admin/add-product', component: AdminAddProductComponent},
   {path: 'admin/edit-product/:id', component: AdminEditProductComponent},
   {path: '', component: PagesComponent},
-  
-
 ]
 
 @NgModule({

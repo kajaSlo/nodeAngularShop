@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-//Get page model
-
 var Product = require('../models/product');
-
-//Get all products
 
 router.get('/', function(req,res){
     Product.find({}, function(err,products){
@@ -14,23 +10,6 @@ router.get('/', function(req,res){
    }); 
 });
 
-
-/*
-// Get a single page
-
-router.get('/:slug', function (req, res) {
-
-    var slug = req.params.slug;
-
-    Page.findOne({ slug: slug }, function (err, page) {
-        if (err) console.log(err);
-        res.json(page);
-    });
-});
-
-
-*/
-// POST add product
 router.post('/add-product', function (req, res) {
 
     var title = req.body.title;
@@ -40,7 +19,6 @@ router.post('/add-product', function (req, res) {
 
     Product.findOne({ slug: slug }, function (err, product) {
         if (err) console.log(err);
-
         if (product) {
             res.json("productExists");
         } else {
@@ -59,9 +37,6 @@ router.post('/add-product', function (req, res) {
     });
 });
 
-
-
-// GET edit product
 router.get('/edit-product/:id', function (req, res) {
 
     var id = req.params.id;
@@ -72,10 +47,6 @@ router.get('/edit-product/:id', function (req, res) {
     });
 });
 
-
-
-
-//POST edit product
 router.post('/edit-product/:id', function (req, res) {
 
     var id = req.params.id;
@@ -112,8 +83,6 @@ router.post('/edit-product/:id', function (req, res) {
     });
 });
 
-
-//GET delete product
 router.get('/delete-product/:id', function (req, res) {
 
     var id = req.params.id;
@@ -127,7 +96,5 @@ router.get('/delete-product/:id', function (req, res) {
         }
     });
 });
-
-//Exports
 
 module.exports = router;

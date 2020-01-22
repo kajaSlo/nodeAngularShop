@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
 import { PageService } from './../../services/page.service';
 
 @Component({
@@ -21,7 +20,6 @@ export class AdminPagesComponent implements OnInit {
 
     ngOnInit() {
         if (localStorage.getItem("user") !== "\"admin\"") this.router.navigateByUrl('');
-
         this.pages = this.pageService.pagesBS;
     }
 
@@ -38,7 +36,6 @@ export class AdminPagesComponent implements OnInit {
                     setTimeout(function() {
                         this.successMsg = false;
                     }.bind(this),2000);
-
                     this.pageService.getPages().subscribe(pages => {
                         this.pageService.pagesBS.next(pages);
                     });
@@ -46,5 +43,4 @@ export class AdminPagesComponent implements OnInit {
             });
         }
     }
-
 }

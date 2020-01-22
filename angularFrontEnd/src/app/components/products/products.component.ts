@@ -1,4 +1,3 @@
-import { PageService } from './../../services/page.service';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,13 +13,9 @@ export class ProductsComponent implements OnInit {
   constructor(public productService: ProductService) { }
 
   ngOnInit() {
-
     this.productService.getProducts().subscribe(products => {
-
       this.productService.productsBS.next(products);
       this.products = this.productService.productsBS;
     });
-
   }
-
 }

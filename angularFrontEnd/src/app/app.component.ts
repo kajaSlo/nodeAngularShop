@@ -1,7 +1,4 @@
-import { PageService } from './services/page.service';
 import { Component } from '@angular/core';
-
-
 
 @Component({
   selector: 'app-root',
@@ -10,20 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-/*pages:any;
-
-
-constructor(public pageService: PageService) { }
-
-  ngOnInit() {
-
-
-    this.pageService.getPages().subscribe(pages => {
-        this.pageService.pagesBS.next(pages);
-         this.pages = this.pageService.pagesBS;
-       });
-    }
-    */
     get front() {
         if (localStorage.getItem("user") === "\"admin\"") {
             return false;
