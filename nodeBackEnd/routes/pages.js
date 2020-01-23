@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
 var Page = require('../models/page');
 
 router.get('/', function(req,res){
@@ -59,7 +58,6 @@ router.get('/edit-page/:id', function (req, res) {
 router.post('/edit-page/:id', function (req, res) {
 
     var id = req.params.id;
-
     var title = req.body.title;
     var slug = req.body.title.replace(/\s+/g, '-').toLowerCase();
     var content = req.body.content;

@@ -8,7 +8,6 @@ import { ProductService } from '../../services/product.service';
 })
 export class AdminAddProductComponent implements OnInit {
 
-
   public successMsg: boolean = false;
   public errorMsg: boolean = false;
   public title: string;

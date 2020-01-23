@@ -2,7 +2,6 @@ import { PageService } from './../../services/page.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-admin-add-page',
   templateUrl: './admin-add-page.component.html',
@@ -22,7 +21,6 @@ export class AdminAddPageComponent implements OnInit {
 
   }
 
-
   addPage({form, value, valid}) {
     form.reset();
     if (valid) {
@@ -37,10 +35,6 @@ export class AdminAddPageComponent implements OnInit {
                 setTimeout(function() {
                     this.successMsg = false;
                 }.bind(this),2000);
-
-
-                //updating pagesBS observable after a page is added
-                //so the page will apear in the menu
                 this.pageService.getPages().subscribe(pages => {
                     this.pageService.pagesBS.next(pages);
                 })

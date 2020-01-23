@@ -13,7 +13,6 @@ db.once('open', function() {
 
 var app = express();
 
-
 app.set('json spaces', 40);
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())

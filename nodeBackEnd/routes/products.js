@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
 var Product = require('../models/product');
 
 router.get('/', function(req,res){
@@ -55,7 +54,6 @@ router.post('/edit-product/:id', function (req, res) {
     var slug = req.body.title.replace(/\s+/g, '-').toLowerCase();
     var desc = req.body.desc;
     var price = req.body.price;
-
 
     Product.findOne({ slug: slug, _id: { '$ne': id } }, function (e, p) {
         if (e) console.log(e);
