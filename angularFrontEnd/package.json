@@ -23,7 +23,7 @@
     "@types/core-js": "^0.9.46",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
